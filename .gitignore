@@ -68,3 +68,4 @@ typings/
 *.log
 .idea
 .vscode
+build/Release
