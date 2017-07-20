@@ -1,34 +1,28 @@
-const path              = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack           = require('webpack');
+const merge = require('webpack-merge');
+const path  = require('path');
 
-const NODE_ENV = process.env.NODE_ENV || 'development';
+//Другие настройки
+const common      = require('./config/webpack.common');
+const production  = require('./config/webpack.production.js');
+const development = require('./config/webpack.development.js');
 
-module.exports = {
-    entry: {
-        app: './app/main.js'
+const webpack_mode = process.env.npm_lifecycle_event || 'dev';
+const build_configs = webpack_mode == 'prod' ? production : development;
+
+module.exports = merge(common, build_configs, {
+    entry: { 
+        main: ['./src/main.js']
     },
     output: {
-        path: path.join(__dirname, 'build'),
-        filename: './[name].bundle.js',
+        path: path.join(__dirname, 'static'),
+		filename: 'js/[name].js',
     },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: './app/index.html',
-            inject: true
-        })
-    ],
-    module: {
-        rules: [{
-                test: /\.(js|jsx)$/,
-                exclude: /(node_modules|bower_components)/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['env']
-                    }
-                }
-            },
-        ]
-    }
-};
+});
+
+
+if (webpack_mode == 'dev'){
+    console.log('Webpack запущен в режиме development');
+}
+if (webpack_mode == 'prod'){
+    console.log('Webpack запущен в режиме production');
+}

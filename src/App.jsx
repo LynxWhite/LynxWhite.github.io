@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Test from './components/test/test-component.jsx';
+import './css/custom.styl';
+import './css/bootstrap.min.css';
 
 class App extends Component {
     render() {
