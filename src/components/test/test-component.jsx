@@ -5,7 +5,7 @@ class Test extends Component {
     render() {
         return (
             <div> 
-                <p>Hello world</p>
+                <p>{this.props.text}</p>
                 <img src={imgSource}></img>
             </div>
         );

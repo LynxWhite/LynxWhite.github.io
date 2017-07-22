@@ -1,12 +1,12 @@
 {
   "name": "lynxwhite.github.io",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "learning webpack and react",
   "main": "/src/index.js",
   "scripts": {
     "start": "webpack-dev-server --open",
-    "dev":"webpack-dev-server --env=dev --progress --inline --hot",
-    "prod":"webpack --env=prod"
+    "dev": "webpack-dev-server --env=dev --progress --inline --hot",
+    "prod": "webpack --env=prod"
   },
   "repository": {
     "type": "git",
@@ -49,6 +49,7 @@
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
-    "react-hot-loader": "^3.0.0-beta.7"
+    "react-hot-loader": "^3.0.0-beta.7",
+    "redux-saga": "^0.15.5"
   }
 }

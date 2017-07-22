@@ -10,7 +10,7 @@ module.exports = {
     'webpack/hot/dev-server',
     './src/main.js', //Точка входа
   ],
-  devtool: 'eval',
+  devtool: 'source-map',
   plugins: [
     // enable HMR globally
     new webpack.HotModuleReplacementPlugin(),
