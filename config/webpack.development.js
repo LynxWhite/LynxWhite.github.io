@@ -1,14 +1,11 @@
-var path = require('path');
-const ExtractTextPlugin  = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin  = require('html-webpack-plugin');
-const webpack = require('webpack');
+const webpack            = require('webpack');
 
 module.exports = {
   entry: [
     'react-hot-loader/patch', // активация HMR для React
     'webpack-dev-server/client',
     'webpack/hot/dev-server',
-    './src/main.js', //Точка входа
+    './src/main.js' // Точка входа
   ],
   devtool: 'source-map',
   plugins: [
@@ -17,7 +14,7 @@ module.exports = {
     // prints more readable module names in the browser console on HMR updates
     new webpack.NamedModulesPlugin(),
     // do not emit compiled assets that include errors
-    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
   ],
   devServer: {
     host: 'localhost',
@@ -31,5 +28,5 @@ module.exports = {
         warnings: true,
         errors: true
     }
-  },
+  }
 };
